@@ -2,14 +2,14 @@
 var _ = require('../../../my_lodash/my_lodash.js');
 
 var even_group_calculate_average = function(collection){
-    var array = _.filter_in(collection,function (item,i) {
+    var array = _(collection).filter(function (item,i) {
         return i % 2 === 1 && item % 2 === 0;
-    });
+    }).value();
     var result =[];
     var result_even = {};
-    _.each(array,function (num,i) {
-        result_even[(num+'').length] = result_even[(num+'').length] || [];
-        result_even[(num+'').length].push(num);
+    _(array).each(function (item,i) {
+        result_even[(item+'').length] = result_even[(item+'').length] || [];
+        result_even[(item+'').length].push(item);
     });
     for (var key in result_even) {
         var sum = 0;
