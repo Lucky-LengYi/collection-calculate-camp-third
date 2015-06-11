@@ -2,13 +2,11 @@
 var _ = require('../../my_lodash/my_lodash.js');
 
 function hybrid_operation_to_uneven(collection) {
-    var get_odd = _.filter_in(collection,function (num) {
-        return num % 2 === 1;
-    });
-    var result = _.map(get_odd,function (num) {
-        return num * 3 + 5;
-    });
-    return _.sum(result);
+    return _(collection).filter(function (item,i) {
+        return item % 2 === 1;
+    }).map(function (item) {
+        return item * 3 + 5;
+    }).sum().value();
 }
 
 module.exports = hybrid_operation_to_uneven;
