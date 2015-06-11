@@ -1,14 +1,14 @@
 'use strict';
 var _ = require('../my_lodash/my_lodash.js');
 function compute_chain_median(collection) {
-
     var result = collection.split("->");
-    _.each(result,function (item,i) {
+    _(result).each(function (item,i) {
         result[i] = parseInt(item);
     });
-    var median;
-    result = _.bubble_sort(result);
-    return _.get_median(result);
+    result = _(result).bubble_sort(function (item_a,item_b) {
+        return item_a > item_b;
+    }).value();
+    return _(result).get_median().value();
 }
 
 module.exports = compute_chain_median;
