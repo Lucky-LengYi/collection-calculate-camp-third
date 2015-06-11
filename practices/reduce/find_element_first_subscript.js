@@ -4,8 +4,8 @@ var _ = require('../my_lodash/my_lodash.js');
 function calculate_elements_sum(collection, element) {
     var subscript;
     var exist = true;
-    _.each(collection,function (num,i) {
-        if (num === element && exist) {
+    _(collection).each(function (item,i) {
+        if (item === element && exist) {
             subscript = i;
             exist = false;
         }

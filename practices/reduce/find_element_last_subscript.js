@@ -3,8 +3,8 @@ var _ = require('../my_lodash/my_lodash.js');
 
 function calculate_elements_sum(collection, element) {
     var subscript;
-    _.each(collection,function (num,i) {
-        if (num === element) {
+    _(collection).each(function (item,i) {
+        if (item === element) {
             subscript = i;
         }
     });
