@@ -5,6 +5,20 @@ function _(collection) {
     this.collection = collection;
 }
 
+var each = function (collection,func){
+    for (var i = 0; i < collection.length; i++) {
+        func(collection[i],i);
+    }
+};
+var filter = function (collection,func) {
+    var result = [];
+    each(collection,function (item,i) {
+        if (func(item,i)) {
+            result.push(item);
+        }
+    });
+    return result;
+};
 _.prototype = {
     contructor: _,
     each: function(func){
@@ -122,15 +136,18 @@ _.prototype = {
         var result = this.filter(function (item) {
             return true;
         }).value();
-        for (i = 0; i < result.length; i++) {
-            for (x = i + 1; x < result.length; x++) {
-                if (func(result[i],result[x])) {
-                    item = result[i];
-                    result[i] = result[x];
-                    result[x] = item;
+        each(result,function (item_a,i_a) {
+            var to_each = filter(result,function (item,i) {
+                return i > i_a;
+            });
+            each(to_each,function (item_b,i_b) {
+                if (func(result[i_a],result[i_a + i_b + 1])) {
+                    item = result[i_a];
+                    result[i_a] = result[i_a + i_b + 1];
+                    result[i_a + i_b + 1] = item;
                 }
-            }
-        }
+            });
+        });
         this.collection = result;
         return this;
     },
