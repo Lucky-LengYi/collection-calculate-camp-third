@@ -187,6 +187,8 @@ _.prototype = {
     }
 };
 
-var temp = _().range(1,9).value();
+var temp = _().range(1,9).bubble_sort(function (item_a,item_b) {
+    return item_a < item_b;
+}).value();
 
 module.exports = _;
