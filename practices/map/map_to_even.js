@@ -2,9 +2,8 @@
 var _ = require('../my_lodash/my_lodash.js');
 
 function map_to_even(collection){
-    var result = _.map(collection,function (num) {
-        return num * 2;
-    });
-    return result;
+    return _(collection).map(function (item) {
+        return item * 2;
+    }).value();
 }
 module.exports = map_to_even;
