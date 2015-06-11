@@ -2,10 +2,9 @@
 var _ = require('../my_lodash/my_lodash.js');
 
 var map_to_three_multiples = function(collections){
-    var result = _.map(collections,function (num) {
-        return num * 3;
-    });
-    return result;
+    return _(collections).map(function (item,i) {
+        return item * 3;
+    }).value();
 };
 
 module.exports = map_to_three_multiples;
