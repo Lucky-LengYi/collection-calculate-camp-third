@@ -1,12 +1,11 @@
 'use strict';
 var _ = require('../my_lodash/my_lodash.js');
 function double_to_one(collection) {
-    var array = _.flatten(collection);
+    var array = _(collection).flatten().value();
     var result = [];
-    result = [];
-    _.each(array,function (num) {
-        if (!_.exist(result,num)) {
-            result[result.length] = num;
+    _(array).each(function (item,i) {
+        if (!_(result).exist(item).value()) {
+            result[result.length] = item;
         }
     });
     return result;
