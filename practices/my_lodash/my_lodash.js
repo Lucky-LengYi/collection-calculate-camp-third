@@ -6,7 +6,7 @@ function _(collection) {
 }
 
 _.prototype = {
-    contructor: _,
+    
     each: function(func){
         for (var i = 0; i < this.collection.length; i++) {
             func(this.collection[i],i);

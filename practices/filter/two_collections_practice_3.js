@@ -10,7 +10,16 @@ function choose_divisible_integer(collection_a, collection_b) {
             }
         });
     });
+    _(collection_a).each(function (item,i) {
+
+    });
     return result;
 }
 
 module.exports = choose_divisible_integer;
+
+
+this.name;
+this,age
+this.collection;
+return this
