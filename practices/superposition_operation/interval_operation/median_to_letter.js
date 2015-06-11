@@ -2,11 +2,11 @@
 var _ = require('../../my_lodash/my_lodash.js');
 
 function median_to_letter(collection) {
-    var result = _.bubble_sort(collection);
-    var median = _.get_median(result);
+    var median = _(collection).bubble_sort(function (item_a,item_b) {
+        return item_a > item_b;
+    }).get_median().value();
     median = Math.ceil(median);
-    var median_letter = _.num_to_letter(median);
-    return median_letter;
+    return _().num_to_letter(median).value();
 }
 
 module.exports = median_to_letter;
