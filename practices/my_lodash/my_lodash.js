@@ -6,7 +6,7 @@ function _(collection) {
 }
 
 _.prototype = {
-    
+    contructor: _,
     each: function(func){
         for (var i = 0; i < this.collection.length; i++) {
             func(this.collection[i],i);
@@ -185,9 +185,5 @@ _.prototype = {
         return this.collection;
     }
 };
-
-// var temp = _().range(1,9).bubble_sort(function (item_a,item_b) {
-//     return item_a < item_b;
-// }).value();
 
 module.exports = _;

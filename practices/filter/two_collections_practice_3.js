@@ -3,23 +3,14 @@ var _ = require('../my_lodash/my_lodash.js');
 
 function choose_divisible_integer(collection_a, collection_b) {
     var result = [];
-    _.each(collection_a,function (num_a) {
-        _.each(collection_b,function (num_b) {
-            if (num_a % num_b === 0) {
-                result[result.length] = num_a;
+    _(collection_a).each(function (item_a,i) {
+        _(collection_b).each(function (item_b,i) {
+            if (item_a % item_b === 0) {
+                result.push(item_a);
             }
         });
-    });
-    _(collection_a).each(function (item,i) {
-
     });
     return result;
 }
 
 module.exports = choose_divisible_integer;
-
-
-this.name;
-this,age
-this.collection;
-return this
