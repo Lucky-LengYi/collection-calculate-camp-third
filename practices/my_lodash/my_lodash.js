@@ -91,11 +91,12 @@ _.prototype = {
         return this;
     },
     last: function (func) {
+        var result = [];
         if (func !== undefined) {
             result = this.filter(func).value();
+            this.collection = result;
         }
         var last_item;
-        this.collection = result;
         this.reduce(function (item_a,item_b) {
             last_item = item_b;
         });
