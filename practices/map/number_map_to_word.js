@@ -2,10 +2,9 @@
 var _ = require('../my_lodash/my_lodash.js');
 
 var number_map_to_word = function(collection){
-    var result = _.map(collection,function (num) {
-        return _.num_to_letter(num);
-    });
-    return result;
+    return _(collection).map(function (item) {
+        return _().num_to_letter(item).value();
+    }).value();
 };
 
 module.exports = number_map_to_word;
