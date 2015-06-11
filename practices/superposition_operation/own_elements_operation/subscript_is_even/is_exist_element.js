@@ -1,11 +1,12 @@
 'use strict';
+var _ = require("../../../my_lodash/my_lodash.js")
 var is_exist_element = function(collection,element){
-    var result;
-    for (var i = 0; i < collection.length; i++) {
-        if ( i % 2 === 0 && collection[i] === element) {
-            return true;
+    var result = false;
+    _(collection).each(function (item,i) {
+        if (i % 2 === 0 && item === element) {
+            result = true;
         }
-    }
-    return false;
+    });
+    return result;
 };
 module.exports = is_exist_element;
