@@ -2,9 +2,9 @@
 var _ = require('../my_lodash/my_lodash.js');
 
 function choose_even(collection) {
-    return _.filter_in(collection,function (num) {
-        return num % 2 === 0;
-    });
+    return _(collection).filter(function (item,i) {
+        return item % 2 === 0;
+    }).value();
 }
 
 module.exports = choose_even;
