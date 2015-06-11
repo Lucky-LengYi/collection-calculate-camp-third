@@ -154,9 +154,7 @@ _.prototype = {
         this.collection = len % 2 === 0 ? (this.collection[len / 2] + this.collection[len / 2 -1]) / 2 : this.collection[(len - 1) / 2] ;
         return this;
     },
-    num_to_letter: function () {
-        var num = this.collection;
-        console.log(num);
+    num_to_letter: function (num) {
         var letters = 'zabcdefghijklmnopqrstuvwxyz';
         var NUMBER_OF_LETTERS = 26;
         var result;
@@ -188,8 +186,8 @@ _.prototype = {
     }
 };
 
-var temp = _().range(1,9).bubble_sort(function (item_a,item_b) {
-    return item_a < item_b;
-}).value();
+// var temp = _().range(1,9).bubble_sort(function (item_a,item_b) {
+//     return item_a < item_b;
+// }).value();
 
 module.exports = _;
