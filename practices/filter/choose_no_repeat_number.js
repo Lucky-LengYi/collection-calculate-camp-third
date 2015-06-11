@@ -2,13 +2,14 @@
 var _ = require('../my_lodash/my_lodash.js');
 
 function choose_no_repeat_number(collection) {
-    var array = [];
-    _.each(collection,function (num) {
-        if (!_.exist(array,num)) {
-            array[array.length] = num;
+    var result = [];
+    _(collection).each(function (item,i) {
+        if (!_(result).exist(item).value()) {
+            result.push(item);
         }
     });
-    return array;
+
+    return result;
 }
 
 module.exports = choose_no_repeat_number;
