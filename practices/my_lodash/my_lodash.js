@@ -10,6 +10,18 @@ var each = function (collection,func){
         func(collection[i],i);
     }
 };
+_.each = function (collection,func) {
+    each(collection,func);
+};
+_.exist = function (collection,item) {
+    var result = false;
+    each(collection,function (element) {
+        if (item === element) {
+            result = true;
+        }
+    });
+    return result;
+};
 var filter = function (collection,func) {
     var result = [];
     each(collection,function (item,i) {

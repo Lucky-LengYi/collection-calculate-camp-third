@@ -3,8 +3,8 @@ var _ = require('../my_lodash/my_lodash.js');
 
 function get_intersection(collection_a, collection_b) {
     var result = [];
-    _(collection_b).each(function (item,i) {
-        if (_(collection_a).exist(item).value()) {
+    _.each(collection_b,function (item,i) {
+        if (_.exist(collection_a,item)) {
             result.push(item);
         }
     });
